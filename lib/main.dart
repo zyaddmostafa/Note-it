@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:note_it/views/appinfo.dart';
+import 'package:note_it/views/home.dart';
+import 'package:note_it/views/login.dart';
+import 'package:note_it/views/mynotes.dart';
+import 'package:note_it/views/signup.dart';
+
+void main() {
+  runApp(const NoteApp());
+}
+
+class NoteApp extends StatelessWidget {
+  const NoteApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        Home.id: (context) => const Home(),
+        Appinfo.id: (context) => const Appinfo(),
+        Login.id: (context) => const Login(),
+        Signup.id: (context) => const Signup(),
+        Mynotes.id: (context) => const Mynotes(),
+      },
+      home: const Appinfo(),
+    );
+  }
+}
