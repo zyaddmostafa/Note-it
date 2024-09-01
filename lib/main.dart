@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_it/views/appinfo.dart';
+import 'package:note_it/views/editnote.dart';
 import 'package:note_it/views/home.dart';
 import 'package:note_it/views/login.dart';
 import 'package:note_it/views/mynotes.dart';
@@ -23,6 +24,7 @@ class NoteApp extends StatelessWidget {
         Login.id: (context) => const Login(),
         Signup.id: (context) => const Signup(),
         Mynotes.id: (context) => const Mynotes(),
+        Editnote.id: (context) => const Editnote(),
       },
       home: const Appinfo(),
     );

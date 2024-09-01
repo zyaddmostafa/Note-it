@@ -32,7 +32,7 @@ class Custombuttom extends StatelessWidget {
                 )
               : Text(
                   buttomname,
-                  style: const TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 16),
                 ),
         ),
       ),
