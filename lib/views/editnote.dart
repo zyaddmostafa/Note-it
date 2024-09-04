@@ -20,7 +20,7 @@ class Editnote extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            const CustomTextfield(hint: 'Title'),
+            const NotesTextfield(hint: 'Title'),
             const SizedBox(
               height: 15,
             ),
