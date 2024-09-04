@@ -80,7 +80,7 @@ class Mynotes extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            NotesTextfield(hint: 'Search'),
+            const NotesTextfield(hint: 'Search'),
             const SizedBox(
               height: 20,
             ),
