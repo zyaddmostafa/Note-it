@@ -40,7 +40,17 @@ class _NotesheetformState extends State<Notesheetform> {
           const SizedBox(
             height: 25,
           ),
-          Custombuttom(buttomname: 'Add note'),
+          Custombuttom(
+            buttomname: 'Add note',
+            onTap: () {
+              if (formkey.currentState!.validate()) {
+                formkey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
           const SizedBox(
             height: 20,
           )
