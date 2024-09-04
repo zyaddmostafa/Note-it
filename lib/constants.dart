@@ -10,3 +10,4 @@ const String klogin = 'login';
 const String ksignup = 'sginup';
 const String kmynotes = 'mynotes';
 const String keditnote = 'editnote';
+const String kallnotebox = 'allnote';
