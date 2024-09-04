@@ -1,19 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SimpleblocObserver implements BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
-    print('change :${change}');
+    debugPrint('change :${change}');
   }
 
   @override
   void onClose(BlocBase bloc) {
-    print('close :${bloc}');
+    debugPrint('close :${bloc}');
   }
 
   @override
   void onCreate(BlocBase bloc) {
-    print('create :${bloc}');
+    debugPrint('create :${bloc}');
   }
 
   @override
