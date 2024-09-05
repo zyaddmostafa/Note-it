@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:note_it/constants.dart';
+import 'package:note_it/models/notemodel.dart';
 import 'package:note_it/views/editnote.dart';
 
 class Notecard extends StatelessWidget {
   const Notecard({
     super.key,
+    required this.notemodel,
   });
-
+  final Notemodel notemodel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -15,41 +17,44 @@ class Notecard extends StatelessWidget {
       },
       child: Card(
         shape: RoundedRectangleBorder(
-            side: BorderSide(color: kcolor3),
+            side: const BorderSide(color: kcolor3),
             borderRadius: BorderRadius.circular(12)),
         elevation: 5,
         color: kcolor2,
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                   child: Text(
-                    'to do',
-                    style: TextStyle(fontSize: 20),
+                    notemodel.title,
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ),
               ),
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  '9 augest',
-                  style: TextStyle(fontSize: 16, color: kcolor3),
+                  notemodel.date,
+                  style: const TextStyle(fontSize: 16, color: kcolor3),
                 ),
               ),
-              Divider(),
-              SizedBox(
+              const Divider(),
+              const SizedBox(
                 height: 10,
               ),
-              Text(
-                'sfdsgdfgsdfgsdfgsfgdsdsgsdsgfgsfddgsdsgdgsdf\nfdsafdafsdafsdfaafafdfkdbjldsbfgksdgfbkldsbjlksgbjklsdbjfklgbdjsklgbdlkb',
-                style: TextStyle(fontSize: 16),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  notemodel.desc,
+                  style: const TextStyle(fontSize: 16),
+                ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               )
             ],
