@@ -9,7 +9,7 @@ class Custombuttom extends StatelessWidget {
       this.islodaing = false,
       this.h = 50,
       this.v = 10});
-  final String buttomname;
+  final dynamic buttomname;
   final void Function()? onTap;
   final bool islodaing;
   final double h, v;

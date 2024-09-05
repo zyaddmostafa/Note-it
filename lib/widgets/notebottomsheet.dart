@@ -19,26 +19,27 @@ class _NotebottomsheetState extends State<Notebottomsheet> {
     return BlocProvider(
       create: (context) => AddnoteCubit(),
       child: Padding(
-          padding: EdgeInsets.only(
-              left: 20,
-              right: 20,
-              top: 20,
-              bottom: MediaQuery.of(context).viewInsets.bottom),
-          child: BlocConsumer<AddnoteCubit, AddnoteState>(
-            listener: (context, state) {
-              if (state is Addnotefaluir) {
-                print('Falied ${state.errormessage}');
-              }
-              if (state is AddnoteSuccess) {
-                Navigator.pop(context);
-              }
-            },
-            builder: (context, state) {
-              return ModalProgressHUD(
-                  inAsyncCall: state is Addnoteloading ? true : false,
-                  child: SingleChildScrollView(child: Notesheetform()));
-            },
-          )),
+        padding: EdgeInsets.only(
+            left: 20,
+            right: 20,
+            top: 20,
+            bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: BlocConsumer<AddnoteCubit, AddnoteState>(
+          listener: (context, state) {
+            if (state is Addnotefaluir) {
+              print('Falied ${state.errormessage}');
+            }
+            if (state is AddnoteSuccess) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return AbsorbPointer(
+                absorbing: state is Addnoteloading ? true : false,
+                child: SingleChildScrollView(child: Notesheetform()));
+          },
+        ),
+      ),
     );
   }
 }

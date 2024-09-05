@@ -8,7 +8,7 @@ class Notemodel extends HiveObject {
   @HiveField(1)
   final String desc;
   @HiveField(2)
-  final int date;
+  final String date;
 
   Notemodel({
     required this.title,

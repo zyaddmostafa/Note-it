@@ -1,6 +1,10 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_it/cubits/addnote/cubit/addnote_cubit.dart';
 import 'package:note_it/helpers/custombuttom.dart';
+import 'package:note_it/models/notemodel.dart';
 import 'package:note_it/widgets/notestextfield.dart';
 
 class Notesheetform extends StatefulWidget {
@@ -40,15 +44,25 @@ class _NotesheetformState extends State<Notesheetform> {
           const SizedBox(
             height: 25,
           ),
-          Custombuttom(
-            buttomname: 'Add note',
-            onTap: () {
-              if (formkey.currentState!.validate()) {
-                formkey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddnoteCubit, AddnoteState>(
+            builder: (context, state) {
+              return Custombuttom(
+                islodaing: state is Addnoteloading ? true : false,
+                buttomname: 'Add note',
+                onTap: () {
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
+                    var note = Notemodel(
+                        title: title!,
+                        desc: decs!,
+                        date: DateTime.now().toString());
+                    BlocProvider.of<AddnoteCubit>(context).addnote(note);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
           const SizedBox(

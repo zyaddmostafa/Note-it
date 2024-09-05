@@ -19,7 +19,7 @@ class NotemodelAdapter extends TypeAdapter<Notemodel> {
     return Notemodel(
       title: fields[0] as String,
       desc: fields[1] as String,
-      date: fields[2] as int,
+      date: fields[2] as String,
     );
   }
 
