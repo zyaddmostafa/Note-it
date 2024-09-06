@@ -2,7 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note_it/cubits/addnote/cubit/addnote_cubit.dart';
+import 'package:intl/intl.dart';
+import 'package:note_it/cubits/addnote/addnote_cubit.dart';
 import 'package:note_it/helpers/custombuttom.dart';
 import 'package:note_it/models/notemodel.dart';
 import 'package:note_it/widgets/notestextfield.dart';
@@ -50,12 +51,13 @@ class _NotesheetformState extends State<Notesheetform> {
                 islodaing: state is Addnoteloading ? true : false,
                 buttomname: 'Add note',
                 onTap: () {
+                  DateTime now = DateTime.now();
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
                     var note = Notemodel(
                         title: title!,
                         desc: decs!,
-                        date: DateTime.now().toString());
+                        date: DateFormat('MMMM dd').format(now));
                     BlocProvider.of<AddnoteCubit>(context).addnote(note);
                   } else {
                     autovalidateMode = AutovalidateMode.always;

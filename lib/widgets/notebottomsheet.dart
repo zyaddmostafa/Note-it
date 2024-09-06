@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:note_it/cubits/addnote/cubit/addnote_cubit.dart';
+import 'package:note_it/cubits/addnote/addnote_cubit.dart';
+import 'package:note_it/cubits/notes/cubit/notes_cubit.dart';
 import 'package:note_it/helpers/custombuttom.dart';
 import 'package:note_it/widgets/notesheetform.dart';
 import 'package:note_it/widgets/notestextfield.dart';
@@ -30,6 +31,7 @@ class _NotebottomsheetState extends State<Notebottomsheet> {
               print('Falied ${state.errormessage}');
             }
             if (state is AddnoteSuccess) {
+              BlocProvider.of<NotesCubit>(context).fetchallnotes();
               Navigator.pop(context);
             }
           },

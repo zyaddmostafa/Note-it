@@ -16,80 +16,76 @@ class Mynotes extends StatelessWidget {
   static String id = kmynotes;
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-          backgroundColor: kcolor,
-          onPressed: () {
-            showModalBottomSheet(
-              isScrollControlled: true,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-              context: context,
-              builder: (context) {
-                return const Notebottomsheet();
-              },
-            );
-          },
-          child: const Icon(
-            FontAwesomeIcons.pen,
-            color: kcolor2,
-          ),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+        backgroundColor: kcolor,
+        onPressed: () {
+          showModalBottomSheet(
+            isScrollControlled: true,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            context: context,
+            builder: (context) {
+              return const Notebottomsheet();
+            },
+          );
+        },
+        child: const Icon(
+          FontAwesomeIcons.pen,
+          color: kcolor2,
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 35,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 35,
+            ),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                '22 ,December,2024',
+                style: TextStyle(color: kcolor3, fontSize: 15),
               ),
-              const Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  '22 ,December,2024',
-                  style: TextStyle(color: kcolor3, fontSize: 15),
+            ),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: const Text(
+                'Notes',
+                style: TextStyle(fontSize: 30),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const NotesTextfield(hint: 'Search'),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 180,
+              child: GridView.builder(
+                itemCount: 4,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 3.2,
+                  crossAxisSpacing: 15,
+                  mainAxisSpacing: 15,
                 ),
+                itemBuilder: (context, index) {
+                  return Notesoptioncard(
+                    optionsmodel: optionbuttom[index],
+                  );
+                },
               ),
-              const Align(
-                alignment: Alignment.topLeft,
-                child: const Text(
-                  'Notes',
-                  style: TextStyle(fontSize: 30),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const NotesTextfield(hint: 'Search'),
-              const SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 180,
-                child: GridView.builder(
-                  itemCount: 4,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 3.2,
-                    crossAxisSpacing: 15,
-                    mainAxisSpacing: 15,
-                  ),
-                  itemBuilder: (context, index) {
-                    return Notesoptioncard(
-                      optionsmodel: optionbuttom[index],
-                    );
-                  },
-                ),
-              ),
-              const Expanded(
-                child: Notelistveiwbuilder(),
-              ),
-            ],
-          ),
+            ),
+            const Expanded(
+              child: Notelistveiwbuilder(),
+            ),
+          ],
         ),
       ),
     );
