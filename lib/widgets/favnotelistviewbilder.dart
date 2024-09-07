@@ -30,6 +30,7 @@ class _NotelistveiwbuilderState extends State<Favnotelistveiwbuilder> {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),
               child: Notecard(
+                color: Colors.amber.withOpacity(0.5),
                 notemodel: favnotelist[index],
               ),
             );

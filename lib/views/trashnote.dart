@@ -5,9 +5,9 @@ import 'package:note_it/widgets/notesoptioncard.dart';
 import 'package:note_it/widgets/notestextfield.dart';
 import 'package:note_it/widgets/trashnotelistbuilder.dart';
 
-class Trashbote extends StatelessWidget {
-  const Trashbote({super.key});
-
+class Trashnote extends StatelessWidget {
+  const Trashnote({super.key});
+  static String id = ktrash;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

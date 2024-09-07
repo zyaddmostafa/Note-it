@@ -12,7 +12,7 @@ part 'addtrashnote_state.dart';
 class AddtrashnoteCubit extends Cubit<AddtrashnoteState> {
   AddtrashnoteCubit() : super(AddtrashnoteInitial());
 
-  addfavnote(Notemodel note) async {
+  addtrashnote(Notemodel note) async {
     emit(Addtrashnoteloading());
     try {
       var box = Hive.box<Notemodel>(ktrashbox);

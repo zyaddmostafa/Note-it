@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:note_it/constants.dart';
-import 'package:note_it/cubits/notes/cubit/notes_cubit.dart';
-import 'package:note_it/helpers/custom_textfield.dart';
-import 'package:note_it/models/optionsmodel.dart';
 import 'package:note_it/widgets/notebottomsheet.dart';
-import 'package:note_it/widgets/notecard.dart';
 import 'package:note_it/widgets/notelistviewbuilder.dart';
 import 'package:note_it/widgets/notesoptioncard.dart';
 import 'package:note_it/widgets/notestextfield.dart';
@@ -16,6 +12,8 @@ class Mynotes extends StatelessWidget {
   static String id = kmynotes;
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
@@ -44,16 +42,16 @@ class Mynotes extends StatelessWidget {
             const SizedBox(
               height: 35,
             ),
-            const Align(
+            Align(
               alignment: Alignment.topLeft,
               child: Text(
-                '22 ,December,2024',
-                style: TextStyle(color: kcolor3, fontSize: 15),
+                DateFormat('d, MMMM, yyyy').format(now).toString(),
+                style: const TextStyle(color: kcolor3, fontSize: 15),
               ),
             ),
             const Align(
               alignment: Alignment.topLeft,
-              child: const Text(
+              child: Text(
                 'Notes',
                 style: TextStyle(fontSize: 30),
               ),

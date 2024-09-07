@@ -15,7 +15,7 @@ class Trashnotelistveiwbuilder extends StatefulWidget {
 class _NotelistveiwbuilderState extends State<Trashnotelistveiwbuilder> {
   @override
   void initState() {
-    BlocProvider.of<GettrashnoteCubit>(context).fetchfavnotes();
+    BlocProvider.of<GettrashnoteCubit>(context).fetchtrashnotes();
     super.initState();
   }
 
@@ -23,14 +23,16 @@ class _NotelistveiwbuilderState extends State<Trashnotelistveiwbuilder> {
   Widget build(BuildContext context) {
     return BlocBuilder<GettrashnoteCubit, GettrashnoteState>(
       builder: (context, state) {
-        var favnotelist = BlocProvider.of<GettrashnoteCubit>(context).favnotes!;
+        var trashnotelist =
+            BlocProvider.of<GettrashnoteCubit>(context).favnotes!;
         return ListView.builder(
-          itemCount: favnotelist.length,
+          itemCount: trashnotelist.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),
               child: Notecard(
-                notemodel: favnotelist[index],
+                color: Colors.red.withOpacity(0.6),
+                notemodel: trashnotelist[index],
               ),
             );
           },

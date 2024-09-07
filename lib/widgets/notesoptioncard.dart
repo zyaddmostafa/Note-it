@@ -4,6 +4,7 @@ import 'package:note_it/constants.dart';
 import 'package:note_it/models/optionsmodel.dart';
 import 'package:note_it/views/favnote.dart';
 import 'package:note_it/views/mynotes.dart';
+import 'package:note_it/views/trashnote.dart';
 
 class Notesoptioncard extends StatefulWidget {
   const Notesoptioncard(
@@ -34,7 +35,7 @@ class _NotesoptioncardState extends State<Notesoptioncard> {
           Navigator.pushReplacementNamed(context, Favnote.id);
         }
         if (widget.currentindex == 3) {
-          Navigator.pushReplacementNamed(context, Favnote.id);
+          Navigator.pushReplacementNamed(context, Trashnote.id);
         }
       },
       child: Container(

@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/cubits/addfavnote/fav_cubit.dart';
+import 'package:note_it/cubits/addtrashnote/addtrashnote_cubit.dart';
 import 'package:note_it/cubits/getfavnotes/getfavnotes_cubit.dart';
+import 'package:note_it/cubits/gettrashnote/gettrashnote_cubit.dart';
 import 'package:note_it/cubits/notes/cubit/notes_cubit.dart';
 import 'package:note_it/models/notemodel.dart';
 import 'package:note_it/simplebloc_observer.dart';
@@ -14,6 +16,7 @@ import 'package:note_it/views/home.dart';
 import 'package:note_it/views/login.dart';
 import 'package:note_it/views/mynotes.dart';
 import 'package:note_it/views/signup.dart';
+import 'package:note_it/views/trashnote.dart';
 
 void main() async {
   Bloc.observer = SimpleblocObserver();
@@ -43,6 +46,12 @@ class NoteApp extends StatelessWidget {
         BlocProvider(
           create: (context) => GetfavnotesCubit(),
         ),
+        BlocProvider(
+          create: (context) => AddtrashnoteCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GettrashnoteCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -53,7 +62,8 @@ class NoteApp extends StatelessWidget {
           Signup.id: (context) => const Signup(),
           Mynotes.id: (context) => const Mynotes(),
           Editnote.id: (context) => const Editnote(),
-          Favnote.id: (context) => const Favnote()
+          Favnote.id: (context) => const Favnote(),
+          Trashnote.id: (context) => const Trashnote(),
         },
         home: const Appinfo(),
       ),

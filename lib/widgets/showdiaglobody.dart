@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/cubits/addfavnote/fav_cubit.dart';
+import 'package:note_it/cubits/addtrashnote/addtrashnote_cubit.dart';
 
 import 'package:note_it/models/notemodel.dart';
 
@@ -51,7 +52,13 @@ class _ShowdialogbodyState extends State<Showdialogbody> {
             ),
             ElevatedButton(
               onPressed: () {
-                widget.notemodel.delete();
+                DateTime now = DateTime.now();
+                var trashnote = Notemodel(
+                    title: widget.notemodel.title,
+                    desc: widget.notemodel.desc,
+                    date: DateFormat('MMMM dd').format(now));
+                BlocProvider.of<AddtrashnoteCubit>(context)
+                    .addtrashnote(trashnote);
               },
               child: const Text('move note to trash'),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_it/constants.dart';
 import 'package:note_it/cubits/notes/cubit/notes_cubit.dart';
 import 'package:note_it/widgets/notecard.dart';
 
@@ -30,6 +31,7 @@ class _NotelistveiwbuilderState extends State<Notelistveiwbuilder> {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Notecard(
+                  color: kcolor2,
                   notemodel: notelist[index],
                 ),
               );
