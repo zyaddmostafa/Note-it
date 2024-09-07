@@ -40,6 +40,13 @@ class Trashnote extends StatelessWidget {
                 },
               ),
             ),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Trash',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+              ),
+            ),
             const Expanded(
               child: Trashnotelistveiwbuilder(),
             ),

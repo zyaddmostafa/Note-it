@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/helpers/custombuttom.dart';
-import 'package:note_it/views/home.dart';
+import 'package:note_it/views/mynotes.dart';
 import 'package:note_it/widgets/homepages.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -77,7 +77,7 @@ class _AppinfoState extends State<Appinfo> {
                     curve: Curves.bounceOut,
                   );
                 } else {
-                  Navigator.pushReplacementNamed(context, Home.id);
+                  Navigator.pushReplacementNamed(context, Mynotes.id);
                 }
               },
             ),

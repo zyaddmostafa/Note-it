@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/cubits/getfavnotes/getfavnotes_cubit.dart';
+import 'package:note_it/cubits/gethiddennote/cubit/gethiddennote_cubit.dart';
 import 'package:note_it/cubits/gettrashnote/gettrashnote_cubit.dart';
 import 'package:note_it/cubits/notes/cubit/notes_cubit.dart';
 import 'package:note_it/models/notemodel.dart';
@@ -72,6 +73,8 @@ class Notecard extends StatelessWidget {
                             .fetchfavnotes();
                         BlocProvider.of<GettrashnoteCubit>(context)
                             .fetchtrashnotes();
+                        BlocProvider.of<GethiddennoteCubit>(context)
+                            .fetchhiddennotes();
                       },
                       icon: const Icon(FontAwesomeIcons.trash))
                 ],

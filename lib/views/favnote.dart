@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/widgets/favnotelistviewbilder.dart';
@@ -39,6 +40,13 @@ class Favnote extends StatelessWidget {
                     optionsmodel: optionbuttom[index],
                   );
                 },
+              ),
+            ),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Favourite',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
               ),
             ),
             const Expanded(

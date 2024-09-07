@@ -81,6 +81,13 @@ class Mynotes extends StatelessWidget {
                 },
               ),
             ),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Recent notes',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+              ),
+            ),
             const Expanded(
               child: Notelistveiwbuilder(),
             ),

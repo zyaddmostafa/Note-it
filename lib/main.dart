@@ -15,10 +15,7 @@ import 'package:note_it/views/appinfo.dart';
 import 'package:note_it/views/editnote.dart';
 import 'package:note_it/views/favnote.dart';
 import 'package:note_it/views/hiddennote.dart';
-import 'package:note_it/views/home.dart';
-import 'package:note_it/views/login.dart';
 import 'package:note_it/views/mynotes.dart';
-import 'package:note_it/views/signup.dart';
 import 'package:note_it/views/trashnote.dart';
 
 void main() async {
@@ -66,10 +63,7 @@ class NoteApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          Home.id: (context) => const Home(),
           Appinfo.id: (context) => const Appinfo(),
-          Login.id: (context) => const Login(),
-          Signup.id: (context) => const Signup(),
           Mynotes.id: (context) => const Mynotes(),
           Editnote.id: (context) => const Editnote(),
           Favnote.id: (context) => const Favnote(),
