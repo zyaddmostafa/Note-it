@@ -14,6 +14,7 @@ const String kmynotes = 'mynotes';
 const String keditnote = 'editnote';
 const String kallnotebox = 'notes';
 const String kfavebox = 'favnotes';
+const String kfavnote = 'favnotes';
 List<Optionsmodel> optionbuttom = [
   Optionsmodel(
     name: 'All Note',

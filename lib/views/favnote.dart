@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:note_it/constants.dart';
-import 'package:note_it/cubits/notes/cubit/notes_cubit.dart';
-import 'package:note_it/helpers/custom_textfield.dart';
-import 'package:note_it/models/optionsmodel.dart';
+import 'package:note_it/widgets/favnotelistviewbilder.dart';
 import 'package:note_it/widgets/notebottomsheet.dart';
-import 'package:note_it/widgets/notecard.dart';
 import 'package:note_it/widgets/notelistviewbuilder.dart';
 import 'package:note_it/widgets/notesoptioncard.dart';
 import 'package:note_it/widgets/notestextfield.dart';
 
-class Mynotes extends StatelessWidget {
-  const Mynotes({super.key});
-  static String id = kmynotes;
+class Favnote extends StatelessWidget {
+  const Favnote({super.key});
+  static String id = kfavnote;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Back'),
+      ),
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         backgroundColor: kcolor,
@@ -44,23 +43,6 @@ class Mynotes extends StatelessWidget {
             const SizedBox(
               height: 35,
             ),
-            const Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                '22 ,December,2024',
-                style: TextStyle(color: kcolor3, fontSize: 15),
-              ),
-            ),
-            const Align(
-              alignment: Alignment.topLeft,
-              child: const Text(
-                'Notes',
-                style: TextStyle(fontSize: 30),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
             const NotesTextfield(hint: 'Search'),
             const SizedBox(
               height: 20,
@@ -84,7 +66,7 @@ class Mynotes extends StatelessWidget {
               ),
             ),
             const Expanded(
-              child: Notelistveiwbuilder(),
+              child: Favnotelistveiwbuilder(),
             ),
           ],
         ),

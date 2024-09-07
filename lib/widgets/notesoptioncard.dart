@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/models/optionsmodel.dart';
+import 'package:note_it/views/favnote.dart';
+import 'package:note_it/views/mynotes.dart';
 
 class Notesoptioncard extends StatefulWidget {
-  const Notesoptioncard({super.key, required this.optionsmodel});
+  const Notesoptioncard(
+      {super.key, required this.optionsmodel, required this.currentindex});
   final Optionsmodel optionsmodel;
-
+  final int currentindex;
   @override
   State<Notesoptioncard> createState() => _NotesoptioncardState();
 }
@@ -21,6 +24,18 @@ class _NotesoptioncardState extends State<Notesoptioncard> {
         setState(() {
           isselected = !isselected;
         });
+        if (widget.currentindex == 0) {
+          Navigator.pushReplacementNamed(context, Mynotes.id);
+        }
+        if (widget.currentindex == 1) {
+          Navigator.pushReplacementNamed(context, Favnote.id);
+        }
+        if (widget.currentindex == 2) {
+          Navigator.pushReplacementNamed(context, Favnote.id);
+        }
+        if (widget.currentindex == 3) {
+          Navigator.pushReplacementNamed(context, Favnote.id);
+        }
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8),

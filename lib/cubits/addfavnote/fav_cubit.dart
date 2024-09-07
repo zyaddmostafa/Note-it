@@ -8,8 +8,8 @@ import 'package:note_it/models/notemodel.dart';
 
 part 'fav_state.dart';
 
-class FavCubit extends Cubit<FavState> {
-  FavCubit() : super(FavInitial());
+class AddFavNoteCubit extends Cubit<FavState> {
+  AddFavNoteCubit() : super(FavInitial());
   List<Notemodel>? notes;
 
   addfavnote(Notemodel note) async {

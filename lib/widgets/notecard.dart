@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_it/constants.dart';
-import 'package:note_it/cubits/notes/cubit/notes_cubit.dart';
 import 'package:note_it/models/notemodel.dart';
 import 'package:note_it/views/editnote.dart';
+import 'package:note_it/widgets/showdiaglobody.dart';
 
 class Notecard extends StatelessWidget {
   const Notecard({
@@ -19,35 +17,8 @@ class Notecard extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
-              child: Container(
-                height: 200,
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                decoration: BoxDecoration(
-                    color: kcolor2, borderRadius: BorderRadius.circular(12)),
-                child: Column(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('move note to fav'),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('move note to hidden'),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('move note to trash'),
-                    ),
-                  ],
-                ),
-              ),
+            return Showdialogbody(
+              notemodel: notemodel,
             );
           },
         );
