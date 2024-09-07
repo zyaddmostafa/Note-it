@@ -6,16 +6,16 @@ import 'package:meta/meta.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/models/notemodel.dart';
 
-part 'getfavnotes_state.dart';
+part 'gettrashnote_state.dart';
 
-class GetfavnotesCubit extends Cubit<GetfavnotesState> {
-  GetfavnotesCubit() : super(GetfavnotesInitial());
+class GettrashnoteCubit extends Cubit<GettrashnoteState> {
+  GettrashnoteCubit() : super(GettrashnoteInitial());
 
   List<Notemodel>? favnotes;
   fetchfavnotes() {
-    var box = Hive.box<Notemodel>(kfavebox);
+    var box = Hive.box<Notemodel>(ktrashbox);
     favnotes = box.values.toList();
     log(favnotes.toString());
-    emit(GetfavnotesSccuess());
+    emit(GettrashnoteSccuess());
   }
 }

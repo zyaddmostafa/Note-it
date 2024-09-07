@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/widgets/favnotelistviewbilder.dart';
-import 'package:note_it/widgets/notebottomsheet.dart';
 import 'package:note_it/widgets/notesoptioncard.dart';
 import 'package:note_it/widgets/notestextfield.dart';
+import 'package:note_it/widgets/trashnotelistbuilder.dart';
 
-class Favnote extends StatelessWidget {
-  const Favnote({super.key});
-  static String id = kfavnote;
+class Trashbote extends StatelessWidget {
+  const Trashbote({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +41,7 @@ class Favnote extends StatelessWidget {
               ),
             ),
             const Expanded(
-              child: Favnotelistveiwbuilder(),
+              child: Trashnotelistveiwbuilder(),
             ),
           ],
         ),

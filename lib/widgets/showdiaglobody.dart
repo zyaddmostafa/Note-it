@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/cubits/addfavnote/fav_cubit.dart';
+
 import 'package:note_it/models/notemodel.dart';
 
-class Showdialogbody extends StatelessWidget {
+class Showdialogbody extends StatefulWidget {
   const Showdialogbody({
     super.key,
     required this.notemodel,
   });
   final Notemodel notemodel;
+
+  @override
+  State<Showdialogbody> createState() => _ShowdialogbodyState();
+}
+
+class _ShowdialogbodyState extends State<Showdialogbody> {
   @override
   Widget build(BuildContext context) {
-    var favnote = notemodel;
     return Center(
       child: Container(
         height: 200,
@@ -23,6 +30,11 @@ class Showdialogbody extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
+                DateTime now = DateTime.now();
+                var favnote = Notemodel(
+                    title: widget.notemodel.title,
+                    desc: widget.notemodel.desc,
+                    date: DateFormat('MMMM dd').format(now));
                 BlocProvider.of<AddFavNoteCubit>(context).addfavnote(favnote);
               },
               child: const Text('move note to fav'),
@@ -38,7 +50,9 @@ class Showdialogbody extends StatelessWidget {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                widget.notemodel.delete();
+              },
               child: const Text('move note to trash'),
             ),
           ],

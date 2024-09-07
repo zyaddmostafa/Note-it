@@ -21,6 +21,7 @@ void main() async {
   Hive.registerAdapter(NotemodelAdapter());
   await Hive.openBox<Notemodel>(kallnotebox);
   await Hive.openBox<Notemodel>(kfavebox);
+  await Hive.openBox<Notemodel>(ktrashbox);
 
   runApp(const NoteApp());
 }

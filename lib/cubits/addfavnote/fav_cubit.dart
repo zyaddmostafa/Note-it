@@ -10,13 +10,12 @@ part 'fav_state.dart';
 
 class AddFavNoteCubit extends Cubit<FavState> {
   AddFavNoteCubit() : super(FavInitial());
-  List<Notemodel>? notes;
 
-  addfavnote(Notemodel note) async {
+  addfavnote(Notemodel favnote) async {
     emit(Favloading());
     try {
       var box = Hive.box<Notemodel>(kfavebox);
-      await box.add(note);
+      await box.add(favnote);
       log(box.values.toList().toString());
       emit(FavSuccess());
     } catch (e) {

@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note_it/cubits/getfavnotes/getfavnotes_cubit.dart';
+import 'package:note_it/cubits/gettrashnote/gettrashnote_cubit.dart';
 import 'package:note_it/widgets/notecard.dart';
 
-class Favnotelistveiwbuilder extends StatefulWidget {
-  const Favnotelistveiwbuilder({
+class Trashnotelistveiwbuilder extends StatefulWidget {
+  const Trashnotelistveiwbuilder({
     super.key,
   });
 
   @override
-  State<Favnotelistveiwbuilder> createState() => _NotelistveiwbuilderState();
+  State<Trashnotelistveiwbuilder> createState() => _NotelistveiwbuilderState();
 }
 
-class _NotelistveiwbuilderState extends State<Favnotelistveiwbuilder> {
+class _NotelistveiwbuilderState extends State<Trashnotelistveiwbuilder> {
   @override
   void initState() {
-    BlocProvider.of<GetfavnotesCubit>(context).fetchfavnotes();
+    BlocProvider.of<GettrashnoteCubit>(context).fetchfavnotes();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetfavnotesCubit, GetfavnotesState>(
+    return BlocBuilder<GettrashnoteCubit, GettrashnoteState>(
       builder: (context, state) {
-        var favnotelist = BlocProvider.of<GetfavnotesCubit>(context).favnotes!;
+        var favnotelist = BlocProvider.of<GettrashnoteCubit>(context).favnotes!;
         return ListView.builder(
           itemCount: favnotelist.length,
           itemBuilder: (context, index) {

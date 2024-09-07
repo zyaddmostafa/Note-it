@@ -12,9 +12,10 @@ const String klogin = 'login';
 const String ksignup = 'sginup';
 const String kmynotes = 'mynotes';
 const String keditnote = 'editnote';
-const String kallnotebox = 'notes';
-const String kfavebox = 'favnotes';
+const String kallnotebox = 'notesbox';
+const String kfavebox = 'favnotesbox';
 const String kfavnote = 'favnotes';
+const String ktrashbox = 'trashbox';
 List<Optionsmodel> optionbuttom = [
   Optionsmodel(
     name: 'All Note',
