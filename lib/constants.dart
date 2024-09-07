@@ -18,6 +18,7 @@ const String kfavnote = 'favnotes';
 const String ktrashbox = 'trashbox';
 const String ktrash = 'trashview';
 const String khiddenbox = 'hiddenbox';
+const String khiddenview = 'hiddenview';
 List<Optionsmodel> optionbuttom = [
   Optionsmodel(
     name: 'All Note',

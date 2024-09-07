@@ -60,7 +60,7 @@ class Notecard extends StatelessWidget {
                       ),
                       Text(
                         notemodel.date,
-                        style: const TextStyle(fontSize: 12, color: kcolor3),
+                        style: const TextStyle(fontSize: 12, color: kcolor4),
                       ),
                     ],
                   ),

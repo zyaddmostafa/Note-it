@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:note_it/constants.dart';
 import 'package:note_it/models/optionsmodel.dart';
 import 'package:note_it/views/favnote.dart';
+import 'package:note_it/views/hiddennote.dart';
 import 'package:note_it/views/mynotes.dart';
 import 'package:note_it/views/trashnote.dart';
 
@@ -32,7 +33,7 @@ class _NotesoptioncardState extends State<Notesoptioncard> {
           Navigator.pushReplacementNamed(context, Favnote.id);
         }
         if (widget.currentindex == 2) {
-          Navigator.pushReplacementNamed(context, Favnote.id);
+          Navigator.pushReplacementNamed(context, Hiddennote.id);
         }
         if (widget.currentindex == 3) {
           Navigator.pushReplacementNamed(context, Trashnote.id);

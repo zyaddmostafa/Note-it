@@ -11,11 +11,11 @@ part 'gethiddennote_state.dart';
 class GethiddennoteCubit extends Cubit<GethiddennoteState> {
   GethiddennoteCubit() : super(GethiddennoteInitial());
 
-  List<Notemodel>? favnotes;
-  fetchtrashnotes() {
+  List<Notemodel>? hiddennotes;
+  fetchhiddennotes() {
     var box = Hive.box<Notemodel>(khiddenbox);
-    favnotes = box.values.toList();
-    log(favnotes.toString());
+    hiddennotes = box.values.toList();
+    log(hiddennotes.toString());
     emit(GethiddennoteSuccess());
   }
 }

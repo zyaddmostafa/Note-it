@@ -11,11 +11,11 @@ part 'addhiddennote_state.dart';
 class AddhiddennoteCubit extends Cubit<AddhiddennoteState> {
   AddhiddennoteCubit() : super(AddhiddennoteInitial());
 
-  addhiddennote(Notemodel favnote) async {
+  addhiddennote(Notemodel hiddennote) async {
     emit(Addhiddennoteloading());
     try {
       var box = Hive.box<Notemodel>(khiddenbox);
-      await box.add(favnote);
+      await box.add(hiddennote);
       log(box.values.toList().toString());
       emit(AddhiddennoteSuccess());
     } catch (e) {
